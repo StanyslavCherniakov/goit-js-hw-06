@@ -1,8 +1,18 @@
 const ingredients = [
-  'Potatoes',
-  'Mushrooms',
-  'Garlic',
-  'Tomatos',
-  'Herbs',
-  'Condiments',
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
 ];
+
+const ingredientsMarkUp = ingredients.map((element) => {
+  const itemRef = document.createElement("li");
+  itemRef.textContent = element;
+  itemRef.classList.add("item");
+  return itemRef;
+});
+
+const listRef = document.querySelector("#ingredients");
+listRef.append(...ingredientsMarkUp);
