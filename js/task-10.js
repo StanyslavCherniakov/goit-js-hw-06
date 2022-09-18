@@ -9,13 +9,18 @@ btnCreateRef.addEventListener("click", createBoxes);
 
 function createBoxes() {
   const amount = document.getElementsByTagName("input")[0].value;
-  for (let i = 0; i <= amount; i += 1) {
-    boxesRef.insertAdjacentHTML("beforeend", `<div></div>`);
-    let newDivRef = boxesRef.lastElementChild;
+  const boxesMarkUp = document.createDocumentFragment();
+  for (let i = 1; i <= amount; i += 1) {
+    // boxesRef.insertAdjacentHTML("beforeend", `<div></div>`);
+    let newDivRef = document.createElement("div");
+
     newDivRef.style.width = 30 + i * 10 + "px";
     newDivRef.style.height = 30 + i * 10 + "px";
     newDivRef.style.backgroundColor = getRandomHexColor();
+    console.log(newDivRef);
+    boxesMarkUp.appendChild(newDivRef);
   }
+  boxesRef.appendChild(boxesMarkUp);
 }
 
 const btnDeleteRef = document.querySelector("[data-destroy]");
